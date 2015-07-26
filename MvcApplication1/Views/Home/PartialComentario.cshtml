@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MvcApplication1.Models.comentario>
+<div class="PartialComentario">
+    @*<p>
+        @ViewData["Name"]
+    </p>*@
+    @foreach (var item in Model)
+    {
+        <table>
+            <tr>
+                @Html.DisplayFor(modelItem => item.comentario1)
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.usuario)
+                </td>
+            </tr>
+        </table>
+        <br />
+    }
+</div>
+<div style="font-size: medium">
+    <p>
+        @Html.ActionLink("Inserir comentário", "Create", "Comentario")
+    </p>
+</div>

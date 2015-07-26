@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MyDbTestModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MyDbTestModelStoreContainer">
+          <EntitySet Name="comentario" EntityType="MyDbTestModel.Store.comentario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="restaurante" EntityType="MyDbTestModel.Store.restaurante" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_comentario_restaurante" Association="MyDbTestModel.Store.FK_comentario_restaurante">
+            <End Role="restaurante" EntitySet="restaurante" />
+            <End Role="comentario" EntitySet="comentario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="comentario">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="nchar" MaxLength="30" />
+          <Property Name="comentario" Type="nvarchar(max)" />
+          <Property Name="cod_restaurante" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="restaurante">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="nchar" MaxLength="50" />
+          <Property Name="tipo" Type="nchar" MaxLength="30" />
+          <Property Name="estilo" Type="nchar" MaxLength="15" />
+          <Property Name="horario" Type="nchar" MaxLength="200" />
+          <Property Name="endereço" Type="nchar" MaxLength="100" />
+          <Property Name="bairro" Type="nchar" MaxLength="30" />
+          <Property Name="cidade" Type="nchar" MaxLength="30" />
+          <Property Name="descricao" Type="nvarchar(max)" />
+          <Property Name="avaliacao" Type="int" />
+          <Property Name="imagem" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_comentario_restaurante">
+          <End Role="restaurante" Type="MyDbTestModel.Store.restaurante" Multiplicity="1" />
+          <End Role="comentario" Type="MyDbTestModel.Store.comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="restaurante">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="comentario">
+              <PropertyRef Name="cod_restaurante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyDbTestModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MyConnectionString" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="restaurante" EntityType="MyDbTestModel.restaurante" />
+          <EntitySet Name="comentario" EntityType="MyDbTestModel.comentario" />
+          <AssociationSet Name="FK_comentario_restaurante" Association="MyDbTestModel.FK_comentario_restaurante">
+            <End Role="restaurante" EntitySet="restaurante" />
+            <End Role="comentario" EntitySet="comentario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="restaurante">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Name="cod" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="50" Unicode="true" FixedLength="true" />
+          <Property Name="tipo" Type="String" MaxLength="30" Unicode="true" FixedLength="true" />
+          <Property Name="estilo" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
+          <Property Name="horario" Type="String" MaxLength="200" Unicode="true" FixedLength="true" />
+          <Property Name="endereço" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="bairro" Type="String" MaxLength="30" Unicode="true" FixedLength="true" />
+          <Property Name="cidade" Type="String" MaxLength="30" Unicode="true" FixedLength="true" />
+          <Property Name="descricao" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="avaliacao" Type="Int32" />
+          <Property Name="imagem" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="comentario" Relationship="MyDbTestModel.FK_comentario_restaurante" FromRole="restaurante" ToRole="comentario" />
+        </EntityType>
+        <EntityType Name="comentario">
+          <Key>
+            <PropertyRef Name="cod" />
+          </Key>
+          <Property Type="Int32" Name="cod" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="usuario" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="comentario1" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="cod_restaurante" Nullable="false" />
+          <NavigationProperty Name="restaurante" Relationship="MyDbTestModel.FK_comentario_restaurante" FromRole="comentario" ToRole="restaurante" />
+        </EntityType>
+        <Association Name="FK_comentario_restaurante">
+          <End Type="MyDbTestModel.restaurante" Role="restaurante" Multiplicity="1" >
+          </End>
+          <End Type="MyDbTestModel.comentario" Role="comentario" Multiplicity="*" >
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="restaurante">
+              <PropertyRef Name="cod" />
+            </Principal>
+            <Dependent Role="comentario">
+              <PropertyRef Name="cod_restaurante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyDbTestModelStoreContainer" CdmEntityContainer="MyConnectionString">
+          <EntitySetMapping Name="restaurante">
+            <EntityTypeMapping TypeName="MyDbTestModel.restaurante">
+              <MappingFragment StoreEntitySet="restaurante">
+                <ScalarProperty Name="cod" ColumnName="cod" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="estilo" ColumnName="estilo" />
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="endereço" ColumnName="endereço" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="avaliacao" ColumnName="avaliacao" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comentario">
+            <EntityTypeMapping TypeName="MyDbTestModel.comentario">
+              <MappingFragment StoreEntitySet="comentario">
+                <ScalarProperty Name="cod_restaurante" ColumnName="cod_restaurante" />
+                <ScalarProperty Name="comentario1" ColumnName="comentario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="cod" ColumnName="cod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

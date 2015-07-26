@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MvcApplication1.Models.restaurante>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+
+@{
+    ViewBag.Title = "Pagina inicial - Exibe um registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="titulo">
+    <h1>Lista de Restaurantes</h1>
+</div>
+<div class="linkNovo">
+    @Html.ActionLink("Criar novo registro", "Create")
+</div>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="textbox">
+        <p>
+            Localizar por nome: @Html.TextBox("Nome")
+            <input type="submit" value="Filtrar" title="" />
+        </p>
+    </div>
+}
+
+<div class="principal">
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.imagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estilo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bairro)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img width="270" height="105" src='@(Url.Action("RecuperaImagem", "Home", new { id = item.cod }))' />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estilo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bairro)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.cod })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

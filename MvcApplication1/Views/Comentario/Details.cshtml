@@ -1,0 +1,38 @@
+﻿@model MvcApplication1.Models.comentario
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<fieldset>
+    <legend>comentario</legend>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.usuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.usuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.comentario1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comentario1)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.restaurante.nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.restaurante.nome)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

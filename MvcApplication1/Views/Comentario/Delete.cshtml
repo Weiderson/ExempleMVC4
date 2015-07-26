@@ -1,0 +1,44 @@
+﻿@model MvcApplication1.Models.comentario
+@{
+    ViewBag.Title = "Delete";
+}
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>comentario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cod)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.usuario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.usuario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.comentario1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comentario1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.restaurante.nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.restaurante.nome)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

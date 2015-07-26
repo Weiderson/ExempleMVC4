@@ -1,0 +1,176 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for validation divs
+-----------------------------------------------------------*/
+
+.titulo {
+    position: absolute;
+    top: 24px;
+    left: 165px;
+    margin-left: 25px;
+    width: 68%;
+    height: auto;
+}
+
+.linkNovo {
+    position: absolute;
+    top: 58px;
+    left: 670px;
+    width: 68%;
+    height: auto;
+}
+
+.textbox {
+    position: absolute;
+    top: 43px;
+    left: 821px;
+    width: 68%;
+    height: auto;
+}
+
+.principal {
+    margin-left: 10px;
+    margin-top: 15px;
+    position: absolute;
+    left: 180px;
+    top: 70px;
+    width: 68%;
+    height: auto;
+    background-color: #ffd800;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
+.secundario {
+    margin-left: 10px;
+    margin-top: 15px;
+    position: absolute;
+    left: 180px;
+    top: 70px;
+    width: 68%;
+    height: 75%;
+    background-color: #ffd800;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.5);
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
+.finalCriar {
+    position: absolute;
+    left: 165px;
+    top: 800px;
+    width: 68%;
+    height: auto;
+    margin-left: 25px;
+}
+
+.finalApagar {
+    position: absolute;
+    left: 165px;
+    top: 800px;
+    width: 68%;
+    height: auto;
+    margin-left: 25px;
+}
+
+.finalDetalhe {
+    position: absolute;
+    left: 840px;
+    top: 49px;
+    width: 68%;
+    height: auto;
+}
+
+.finalItem {
+    position: absolute;
+    left: 1050px;
+    top: 62px;
+    width: 68%;
+    height: auto;
+}
+
+.finalComentario {
+    position: absolute;
+    left: 165px;
+    top: 615px;
+    width: 68%;
+    height: auto;
+    margin-left: 25px;
+}
+
+.PartialComentario {
+    color: #a51414;
+    font-family: Verdana;
+    font-size: larger;
+    font-style: oblique;
+}
+
+.display-label {
+    color: #a51414;
+    font-family: Verdana;
+    font-size: medium;
+    font-style: normal;
+}

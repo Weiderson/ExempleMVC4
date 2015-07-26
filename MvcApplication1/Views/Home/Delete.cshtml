@@ -1,0 +1,91 @@
+﻿@model MvcApplication1.Models.restaurante
+
+@{
+    ViewBag.Title = "Apagar um registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="titulo">
+    <h1>Apagar registro</h1>
+</div>
+
+<div class="secundario">
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.cod)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cod)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nome)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.estilo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.estilo)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.horario)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.horario)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.endereço)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.endereço)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.bairro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bairro)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.cidade)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cidade)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descricao)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.avaliacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.avaliacao)
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" value="Apagar" />
+            |
+            @Html.ActionLink("Retornar a Lista", "Index")
+        </p>
+    }
+</div>
